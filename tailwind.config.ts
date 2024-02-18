@@ -8,10 +8,20 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontSize: {
+      '6.5xl': '4.1rem',
+      },
+      padding: {
+        '1.7': '0.45rem',
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      fontFamily: {
+        ander: ["var(--font-ander)"],
+        grand: ["var(--font-grand)"],
       },
     },
   },

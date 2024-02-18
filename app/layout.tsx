@@ -1,8 +1,56 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import localfont from "next/font/local";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const grand = localfont({
+  src: [
+    {
+      path: "../public/fonts/GrandRoyal.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-grand",
+});
+
+const ander = localfont({
+    src: [
+      {
+        path: '../public/fonts/AndersonGrotesk-Ultrabold.ttf',
+        weight: '400',
+        style: 'ultrabold',
+      },
+      {
+        path: '../public/fonts/AndersonGrotesk-Bold.otf',
+        weight: '500',
+        style: 'bold',
+      },/*
+      {
+        path: '../../public/fonts/AndersonGrotesk-BoldOblique.otf',
+        weight: '400',
+        style: 'oblique',
+      },
+      {
+        path: '../../public/fonts/AndersonGrotesk-Bold.otf',
+        weight: '400',
+        style: 'normal',
+      },
+      {
+        path: '../../public/fonts/AndersonGrotesk-UltraBold.otf',
+        weight: '500',
+        style: 'normal',
+      },
+      {
+        path: '../../fonts/Anderson/AndersonGrotesk-Black.otf',
+        weight: '600',
+        style: 'normal',
+      }*/
+    ],
+    variable: "--font-ander"
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +63,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${ander.variable} ${grand.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }
