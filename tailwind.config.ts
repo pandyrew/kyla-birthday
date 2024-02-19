@@ -14,6 +14,14 @@ const config: Config = {
       padding: {
         '1.7': '0.45rem',
       },
+      borderWidth: {
+        '3': '3px',
+        
+      },
+      outlineWidth: {
+        '3': '2.5px',
+        
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

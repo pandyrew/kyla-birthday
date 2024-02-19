@@ -35,13 +35,13 @@ export default function PhotoWindow(props: Props) {
         <div style={windowStyle}>
             <div className="h-7 p-1.7 pl-2">
                 <div className="flex gap-2.5">
-                    <div className='h-2.5 w-2.5 bg-[#F75B5B] rounded-sm'>
+                    <div className='h-2.5 w-2.5 bg-[#C66F6F] rounded-sm'>
                         
                     </div>
-                    <div className='h-2.5 w-2.5 bg-[#FFDB5B] rounded-sm'>
+                    <div className='h-2.5 w-2.5 bg-[#F1ED84] rounded-sm'>
                         
                     </div>
-                    <div className='h-2.5 w-2.5 bg-[#7DD66E] rounded-sm'>
+                    <div className='h-2.5 w-2.5 bg-[#76AE79] rounded-sm'>
                         
                     </div>
                 </div>

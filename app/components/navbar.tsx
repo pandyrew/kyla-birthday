@@ -1,6 +1,31 @@
+'use client'
 import Image from "next/image";
+import { useState } from "react";
+
 export default function Navbar() {
+    const Instagram = () => {
+        const [isHovering, setIsHovered] = useState(false);
+        const onMouseEnter = () => setIsHovered(true);
+        const onMouseLeave = () => setIsHovered(false);
+        return (
+          <div
+            className=""
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+          >
+              {isHovering ? (
+                <Image src="/insta-icon-green.png" width={30} height={30} alt="logo" />
+              ) : (
+                <Image src="/insta-icon.png" width={30} height={30} alt="logo" />
+              )}
+          </div>
+  );
+};
+
     return (
+    
+    
+
 
     <div className="bg-[#F6F5EF] w-full h-16 z-10 border-2 border-b-[#7B7B7B] fixed items-center">
         <div className='tracking-wider font-grand fixed right-[46.9%] top-5 text-lg flex flex-row items-center'>
@@ -16,23 +41,19 @@ export default function Navbar() {
                 />
             </div>
         </div>
-            
         <div className="w-full h-full flex flex-row justify-between items-center p-7">
             <div className="flex flex-row gap-12 font-ander font-bold">
-                <div>
+                <a href='#' className="hover:text-[#DD9E9E]">
                     photography
-                </div>
-                <div>
+                </a>
+                <a href='#' className="hover:text-[#E0DB5E]">
                     about
-                </div>
+                </a>
             </div>
-            <a href="#">
-                <Image 
-                src="/insta-icon.png"
-                width="30"
-                height="30"
-                alt="asdf"
-                />
+            <a href="https://www.instagram.com/kylaulug/">
+                <Instagram>
+
+                </Instagram>
             </a>
             </div>
         

@@ -1,20 +1,101 @@
+'use client'
+
 import PhotoWindow from "./photo-window"
+import Image from "next/image"
+import { useState } from "react"
+import { HTMLInputTypeAttribute } from "react";
+import CommentCard from "./comment-card";
+import { useEffect } from "react";
+import firebase, { onSnapshot, QuerySnapshot, DocumentData } from "firebase/firestore";
+import { commentsCollection } from "../lib/controller";
+import howManyComments from "./comment-card";
+import { addComment } from "../lib/controller";
+
+
 
 export default function Main() {
+    const [commentCount, setCommentCount] = useState(0);
+    useEffect(() => {
+    const unsubscribe = onSnapshot(commentsCollection, (snapshot: QuerySnapshot<DocumentData>) => {
+        setCommentCount(snapshot.size);
+    });
+
+    // Clean up the subscription on unmount
+    return () => unsubscribe();
+    }, []);
+    const [name, setName] = useState('');
+    const [content, setContent] = useState('');
+    const [comments, setComments] = useState([]);
+    const [selectedCommentIndex, setSelectedCommentIndex] = useState(0)
+    const descriptors = ['kyla', 'beauty', 'style', 'sillyness!', 'barista moments', 'loved ones']
+    const [word, setWord] = useState('kyla')
+
+    window.addEventListener('scroll', ()=>
+    {
+        const scrolled = window.scrollY
+        console.log(scrolled)
+        if (scrolled <= 473.5){
+            setWord(descriptors[0])
+        }
+        else
+        if (scrolled >= 473.5 && scrolled < 1563){
+            setWord(descriptors[1])
+        }
+        else
+        if (scrolled >= 1563 && scrolled < 3437){
+            setWord(descriptors[2])
+        }
+        else
+        if (scrolled >= 3437 && scrolled < 4586){
+            setWord(descriptors[3])
+        }
+        else
+        if (scrolled >= 4586 && scrolled < 5668){
+            setWord(descriptors[4])
+        }
+        else
+        if (scrolled >= 5668){
+            setWord(descriptors[5])
+        }
+        
+    })
+
+    function handleNameChange(e: any){
+        e.preventDefault();
+        setName(e.target.value);
+    }
+    function handleContentChange(e: any){
+        e.preventDefault();
+        setContent(e.target.value);
+    }
+
+    function handleButtonClick(e: any){
+        console.log('button clicked')
+        console.log(name)
+        console.log(content)
+        addComment({name: name, content: content})
+        setName('');
+        setContent('');
+    }
+
+
+
+    
+
     return (
         <div className="h-full w-full ">
                 <div className="font-ander tracking-wide h-[30%] flex-col p-10 items-center 
-                                text-center text-[#494F48] text-6.5xl font-ultrabold mb-8 sticky 
-                                top-20 flex justify-center h-screen/2 w-full z-1">
+                                text-center text-[#494F48] text-6.5xl font-ultrabold mb-[250px] sticky 
+                                top-20 flex justify-center h-screen/2 w-full ">
                     <div className="relative">
-                        lets celebrate 18 years of
+                        lets celebrate 18 years of 
                     </div>
-                    <div className="relative font-ander -mt-3">
-                        Kyla
+                    <div className="text-[#DD9E9E] relative font-ander -mt-3">
+                        {word}
                     </div>
                 
                 </div>
-            <div className="w-full h-full p-10 ">
+            <div className=" w-full h-full p-10 max-h-[7500px] border-b-2 border-[#6B6B6B]">
                 <div className="z-10 w-full columns-3 h-[800px]">
                     <div className="absolute right-[50%] top-[50%] translate-x-1/2">
                         <PhotoWindow
@@ -26,31 +107,31 @@ export default function Main() {
                 </div>
                
 
-                <div className="relative ml-1 z-100 top-[200px] -right-[69%]">
+                <div className="relative ml-1 z-100 top-[200px] left-[69%] max-w-[300px]">
                     <PhotoWindow
                         name="/kyla-photos/kyla-g2.jpeg"
                         w={300}
                     ></PhotoWindow>
                 </div>
-                <div className="relative ml-1 z-5 -top-[398px] -right-[78%]">
+                <div className="relative ml-1 z-5 -top-[398px] left-[78%] max-w-[250px]">
                     <PhotoWindow
                         name="/kyla-photos/kyla-g.jpeg"
                         w={250}
                     ></PhotoWindow>
                 </div>
-                <div className="relative -top-[400px] -right-[35%] ml-1 z-3">
+                <div className="relative -top-[400px] left-[35%] ml-1 z-3 max-w-[300px]">
                     <PhotoWindow
                         name="/kyla-photos/kyla-g3.jpeg"
                         w={300}
                     ></PhotoWindow>
                 </div>
-                <div className="relative ml-1 z-3 -top-[700px] left-[5%]">
+                <div className="relative ml-1 z-3 -top-[700px] left-[5%] max-w-[400px]">
                     <PhotoWindow
                         name="/kyla-photos/kyla-g5.jpeg"
                         w={400}
                     ></PhotoWindow>
                 </div>
-                <div className="relative ml-1 z-3 left-[22%] -top-[900px]">
+                <div className="relative ml-1 z-3 left-[22%] -top-[900px] max-w-[300px]">
                     <PhotoWindow
                         name="/kyla-photos/kyla-g4.jpeg"
                         w={300}
@@ -59,43 +140,43 @@ export default function Main() {
 
                 
                 <div className="relative -top-[650px]"> {/*fashionista*/}
-                    <div className="relative ml-1 z-100 top-[200px] -right-[44%]">
+                    <div className="relative ml-1 z-100 top-[200px] left-[44%] max-w-[300px]">
                         <PhotoWindow
                             name="/kyla-photos/kyla-f.jpeg"
                             w={300}
                         ></PhotoWindow>
                     </div>
-                    <div className="relative ml-1 z-5 -top-[398px] -right-[78%]">
+                    <div className="relative ml-1 z-5 -top-[398px] left-[78%] max-w-[250px]">
                         <PhotoWindow
                             name="/kyla-photos/kyla-f2.jpeg"
                             w={250}
                         ></PhotoWindow>
                     </div>
-                    <div className="relative -top-[500px] -right-[60%] ml-1 z-3">
+                    <div className="relative -top-[500px] left-[60%] ml-1 z-3 max-w-[300px]">
                         <PhotoWindow
                             name="/kyla-photos/kyla-f3.jpeg"
                             w={300}
                         ></PhotoWindow>
                     </div>
-                    <div className="relative ml-1 z-3 -top-[900px] left-[5%]">
+                    <div className="relative ml-1 z-3 -top-[900px] left-[5%] max-w-[400px]">
                         <PhotoWindow
                             name="/kyla-photos/kyla-f4.jpeg"
                             w={400}
                         ></PhotoWindow>
                     </div>
-                    <div className="relative ml-1 z-3 left-[43%] -top-[1000px]">
+                    <div className="relative ml-1 z-3 left-[43%] -top-[1000px] max-w-[200px]">
                         <PhotoWindow
                             name="/kyla-photos/kyla-f5.jpeg"
                             w={200}
                         ></PhotoWindow>
                     </div>
-                    <div className="relative ml-1 z-3 left-[22%] -top-[1300px]">
+                    <div className="relative ml-1 z-3 left-[22%] -top-[1300px] max-w-[300px]">
                         <PhotoWindow
                             name="/kyla-photos/kyla-f6.jpeg"
                             w={300}
                         ></PhotoWindow>
                     </div>
-                    <div className="relative ml-1 z-3 left-[10%] -top-[1600px]">
+                    <div className="relative ml-1 z-3 left-[10%] -top-[1600px] max-w-[250px]">
                         <PhotoWindow
                             name="/kyla-photos/kyla-f7.jpeg"
                             w={250}
@@ -104,31 +185,31 @@ export default function Main() {
                 </div>
 
                 <div className="relative -top-[1950px]"> {/*silly*/}
-                    <div className="relative ml-1 z-100 top-[50px] left-[0%]">
+                    <div className="relative ml-1 z-100 top-[50px] left-[0%] max-w-[300px]">
                         <PhotoWindow
                             name="/kyla-photos/kyla-s.jpeg"
                             w={300}
                         ></PhotoWindow>
                     </div>
-                    <div className="relative ml-1 z-5 -top-[250px] -right-[78%]">
+                    <div className="relative ml-1 z-5 -top-[250px] left-[78%] max-w-[250px]">
                         <PhotoWindow
                             name="/kyla-photos/kyla-s2.jpeg"
                             w={250}
                         ></PhotoWindow>
                     </div>
-                    <div className="relative -top-[400px] -right-[55%] ml-1 z-3">
+                    <div className="relative -top-[400px] left-[55%] ml-1 z-3 max-w-[300px]">
                         <PhotoWindow
                             name="/kyla-photos/kyla-s3.jpeg"
                             w={300}
                         ></PhotoWindow>
                     </div>
-                    <div className="relative ml-1 z-3 -top-[800px] left-[15%]">
+                    <div className="relative ml-1 z-3 -top-[800px] left-[15%] max-w-[200px]">
                         <PhotoWindow
                             name="/kyla-photos/kyla-s4.jpeg"
                             w={200}
                         ></PhotoWindow>
                     </div>
-                    <div className="relative ml-1 z-3 -right-[70%] -top-[1050px]">
+                    <div className="relative ml-1 z-3 left-[70%] -top-[1050px] max-w-[300px]">
                         <PhotoWindow
                             name="/kyla-photos/kyla-s5.jpeg"
                             w={300}
@@ -136,38 +217,161 @@ export default function Main() {
                     </div>
                 </div>
                 <div className="relative -top-[2600px] "> {/*barista*/}
-                    <div className="relative ml-1 z-100 top-[200px] -right-[69%]">
+                    <div className="relative ml-1 z-100 top-[200px] left-[60%] max-w-[300px]">
                         <PhotoWindow
-                            name="/kyla-photos/kyla-g2.jpeg"
+                            name="/kyla-photos/kyla-d.jpeg"
                             w={300}
                         ></PhotoWindow>
                     </div>
-                    <div className="relative ml-1 z-5 -top-[398px] -right-[78%]">
+                    <div className="relative ml-1 z-5 -top-[398px] left-[78%] max-w-[250px]">
                         <PhotoWindow
-                            name="/kyla-photos/kyla-g.jpeg"
+                            name="/kyla-photos/kyla-d2.jpeg"
                             w={250}
                         ></PhotoWindow>
                     </div>
-                    <div className="relative -top-[400px] -right-[35%] ml-1 z-3">
+                    <div className="relative -top-[700px] left-[37%] ml-1 z-3 max-w-[300px]">
                         <PhotoWindow
-                            name="/kyla-photos/kyla-g3.jpeg"
+                            name="/kyla-photos/kyla-d3.jpeg"
                             w={300}
                         ></PhotoWindow>
                     </div>
-                    <div className="relative ml-1 z-3 -top-[700px] left-[5%]">
+                    <div className="relative ml-1 z-3 -top-[1300px] left-[3%] max-w-[350px]">
                         <PhotoWindow
-                            name="/kyla-photos/kyla-g5.jpeg"
-                            w={400}
+                            name="/kyla-photos/kyla-d4.jpeg"
+                            w={350}
                         ></PhotoWindow>
                     </div>
-                    <div className="relative ml-1 z-3 left-[22%] -top-[900px]">
+                    <div className="relative ml-1 z-3 left-[22%] -top-[1500px] max-w-[300px]">
                         <PhotoWindow
-                            name="/kyla-photos/kyla-g4.jpeg"
+                            name="/kyla-photos/kyla-d5.jpeg"
                             w={300}
                         ></PhotoWindow>
                     </div>
                 </div>
+                <div className="relative -top-[3500px] max-h-[1600px] "> {/*loved ones*/}
+                    <div className="relative ml-1 z-100 -top-[200px] left-[80%] max-w-[300px]">
+                        <PhotoWindow
+                            name="/kyla-photos/kyla-l.jpeg"
+                            w={300}
+                        ></PhotoWindow>
+                    </div>
+                    <div className="relative ml-1 z-5 -top-[250px] left-[78%] max-w-[250px]">
+                        <PhotoWindow
+                            name="/kyla-photos/kyla-l2.jpeg"
+                            w={250}
+                        ></PhotoWindow>
+                    </div>
+                    <div className="relative -top-[300px] left-[80%] ml-1 z-3 max-w-[300px]">
+                        <PhotoWindow
+                            name="/kyla-photos/kyla-l3.jpeg"
+                            w={300}
+                        ></PhotoWindow>
+                    </div>
+                    <div className="relative ml-1 z-3 -top-[1100px] left-[3%] max-w-[250px]">
+                        <PhotoWindow
+                            name="/kyla-photos/kyla-l4.jpeg"
+                            w={250}
+                        ></PhotoWindow>
+                    </div>
+                    <div className="relative ml-1 z-3 left-[5%] -top-[1120px] max-w-[300px]">
+                        <PhotoWindow
+                            name="/kyla-photos/kyla-l5.jpeg"
+                            w={300}
+                        ></PhotoWindow>
+                    </div>
+                    <div className="relative ml-1 z-3 left-[0%] -top-[1150px] max-w-[300px]">
+                        <PhotoWindow
+                            name="/kyla-photos/kyla-l6.jpeg"
+                            w={300}
+                        ></PhotoWindow>
+                    </div>
+                    <div className="relative ml-1 z-3 left-[78%] -top-[1200px] max-w-[300px]">
+                        <PhotoWindow
+                            name="/kyla-photos/kyla-l7.jpeg"
+                            w={300}
+                        ></PhotoWindow>
+                    </div>
+                    <div className="relative ml-1 z-3 left-[5%] -top-[1660px] max-w-[250px]">
+                        <PhotoWindow
+                            name="/kyla-photos/kyla-l8.jpeg"
+                            w={250}
+                        ></PhotoWindow>
+                    </div>
+                    <div className="relative ml-1 z-3 left-[0%] -top-[1700px] max-w-[300px]">
+                        <PhotoWindow
+                            name="/kyla-photos/kyla-l9.jpeg"
+                            w={300}
+                        ></PhotoWindow>
+                    </div>
+                    <div className="relative ml-1 z-3 left-[4%] -top-[1720px] max-w-[350px]">
+                        <PhotoWindow
+                            name="/kyla-photos/kyla-l10.jpeg"
+                            w={350}
+                        ></PhotoWindow>
+                    </div>
+                    <div className="relative ml-1 z-3 left-[80%] -top-[2100px] max-w-[300px]">
+                        <PhotoWindow
+                            name="/kyla-photos/kyla-l11.jpeg"
+                            w={300}
+                        ></PhotoWindow>
+                    </div>
+                </div>
+                <div className="flex justify-center w-[60%] left-[20%] -top-[3500px] h-[1000px] relative ">
+                    <div className="text-[#494F48] font-ander flex 
+                                    text-center w-full font-ultrabold text-6.5xl flex-col ">
+                        <div className="flex flex-col justify-between ">
+                            <div className="">
+                                <div className="h-auto flex justify-center flex-row">{commentCount} Birthday Wishes So Far<p className="text-[#DD9E9E]">...</p></div>
+                                <div className=" text-[#767F74] h-auto text-xl -mt-3 font-bold w-full mb-10">add a birthday wish below! tell <span className="text-[#9AAE9B]">Kyla</span> in person too of course</div>
+                            </div>
+                            <div className="text-[#767F74]  min-h-[60px] h-auto text-xl -mt-3 font-bold w-full justify-start flex">
+                            <Image
+                            src="/clickme.jpeg"
+                            width={110}
+                            height={60}
+                            alt="asdf"
+                            />
+
+                            </div>
+                        </div>
+                        <div className="h-auto w-full flex flex-row gap-4 ">
+                            <div className="mt-1">
+                                <Image
+                                src="/kyla-photos/cat-g.jpeg"
+                                width={70}
+                                height={70}
+                                alt="asdf"
+                                />
+                            </div>
+                            <div className="h-auto w-full rounded-xl outline outline-3 outline-[#BABABA] p-4 flex flex-col">
+                                <textarea value={name} onChange={(e)=>handleNameChange(e)} placeholder="Your name..." rows={1} className="bg-[#F6F5EF] tracking-wide font-ultrabold text-xl p-2 pb-0 w-full h-auto min-h-[45px] border-b-2 border-[#BABABA]"></textarea>
+                                <textarea value={content} onChange={(e)=>handleContentChange(e)} placeholder="Leave a nice note..." rows={5} className="bg-[#F6F5EF] text-[#767F74] font-bold text-xl p-2 pb-1 w-full h-auto min-h-[45px]"></textarea>
+
+                            </div>
+                        </div>
+                        <button onClick={handleButtonClick} className="hover:outline hover:outline-3 hover:outline-[#BABABA] hover:bg-[#DFE6F0] text-xl w-full mt-4 h-[62px] min-h-[62px] bg-[#E9E9E9] rounded-xl flex flex-col justify-center items-center">
+                            Send
+                        </button>
+                        <div className="mt-3 w-full h-2 border-b-2 border-[#BABABA] flex flex-col">
+                            
+
+                        </div>
+                        <div className="flex flex-col">
+                            <CommentCard></CommentCard>
+                        </div>
+                    </div>
+                </div>
+                </div>
             </div>
-        </div>
     )
 }
+/*
+<div className="font-ander tracking-wide flex-col
+                                text-center text-[#494F48] text-6.5xl font-ultrabold mb-[250px] 
+                                top-20 flex justify-center w-full bg-blue-100">
+                    <div className="relative">
+                        lets celebrate 18 years of
+                    </div>
+                    <div className="relative font-ander -mt-3">
+                        Kyla
+                    </div>*/
