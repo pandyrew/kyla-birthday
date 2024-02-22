@@ -3,10 +3,12 @@ import Image from "next/image";
 import { NewCommentType } from "../types/comment";
 import React, { useEffect } from "react";
 import { commentsCollection } from "../lib/controller";
-import Individual from "./individualCommentCard";
+import Individual from "./individualCat";
 import firebase, { onSnapshot, QuerySnapshot, DocumentData } from "firebase/firestore";
 
-
+interface countType {
+    count?: number;
+}
 export function CommentCard() {
     
     const [comments, setComments] = React.useState<NewCommentType []>([]);
@@ -37,9 +39,9 @@ export function CommentCard() {
             {comments  && comments.length ? (
                 <div className="mb-5 flex flex-col-reverse">
                     {
-                        comments.map((comment) => (
-                            <Individual comment={comment} />
-                            
+                        
+                        comments.map((commenting) => (
+                            <Individual comment={commenting}/>
                         ))
                     }
                 </div>

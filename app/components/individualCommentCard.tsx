@@ -34,6 +34,7 @@ function Cat(number: any) {
 
 
 export default function Individual({comment}: IProps) {
+    console.log(comment.counter)
     if (comment.name && comment.content) {
     return(
         <div className="border-t-2 border-[#BABABA] pb-3 pt-10 mb-2 h-auto w-full font-inter">

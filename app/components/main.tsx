@@ -105,7 +105,7 @@ export default function Main() {
         if (name === '' || content === ''){
             return
         }
-        addComment({name: name, content: content, cat: random})
+        addComment({name: name, content: content, cat: random, counter: commentCount+1})
         setName('');
         setContent('');
     }
@@ -176,9 +176,9 @@ export default function Main() {
         setCurrentTime(correctHour + ":" + correctMinutes + ":" + correctSeconds + " " + whichHalf)
     }
 
-    window.onbeforeunload = function () {
+    /*window.onbeforeunload = function () {
         window.scrollTo(0, 0);
-    }
+    }*/
 
 
 
@@ -444,7 +444,7 @@ export default function Main() {
                 </div>
                 <div className="flex justify-center w-full -top-[3500px] min-h-[1000px] relative flex-col">
                     <div className="text-[#494F48] font-ander flex 
-                                    text-center font-ultrabold text-6.5xl flex-col w-[60%] left-[20%] relative">
+                                    text-center font-ultrabold text-6.5xl flex-col w-[60%] left-[20%] relative ">
                         <div className="flex flex-col justify-between ">
                             <div className="">
                                 <div className="h-auto flex justify-center flex-row">{commentCount} Birthday Wishes So Far<p className="text-[#DD9E9E]">...</p></div>
@@ -479,11 +479,25 @@ export default function Main() {
                             
 
                         </div>
-                        <div className="flex flex-col-reverse">
-                            <CommentCard></CommentCard>
-                        </div>
+                        
                         
                     </div>
+                    <div className="border-t-2 border-[#BABABA]  flex p-7 justify-center relative items-center h-full w-[60%] left-[50%] -translate-x-1/2">
+                            <div className="relative w-full h-auto bg-blue-100">
+                            <Image 
+                            src="/cat-cafe.jpeg"
+                            width={5000}
+                            height={5000}
+                            alt='asdf'
+                            >
+                            </Image>
+                            <CommentCard/>
+                            
+                            
+                            </div>
+
+                            
+                        </div>
                     <div className="w-[60%] left-[20%] relative h-[auto] flex justify-start flex-col mb-[300px] mt-1 font-inter tracking-wider text-[#767F74] border-t-2 border-[#867272] pt-6">
                             <div className='mb-3 flex text-[#867272]'>
                                 {currentTime} <p className="ml-1">pst.</p>
