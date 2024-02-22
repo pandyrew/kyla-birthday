@@ -16,6 +16,23 @@ import CatCard from "./cat-card";
 
 
 export default function Main() {
+    const Github = () => {
+        const [isHovering, setIsHovered] = useState(false);
+        const onMouseEnter = () => setIsHovered(true);
+        const onMouseLeave = () => setIsHovered(false);
+        return (
+          <div
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+          >
+              {isHovering ? (
+                <Image src="/github-y.png" width={30} height={30} alt="logo" />
+              ) : (
+                <Image src="/github.png" width={30} height={30} alt="logo" />
+              )}
+          </div>
+  );
+};
     const [commentCount, setCommentCount] = useState(0);
     useEffect(() => {
     const unsubscribe = onSnapshot(commentsCollection, (snapshot: QuerySnapshot<DocumentData>) => {
@@ -519,22 +536,7 @@ export default function Main() {
 
                     </a>
                     </div>
-            </div> {/*
-                    <div className="absolute h-[80px] w-[65px] bg-[#434343] bottom-[60px] right-[20%] flex justify-end flex-col items-center rounded-t-sm">
-                        <div className="bg-black h-[75px] w-[55px] flex flex-row justify-end perspective-100">
-                            <div className="h-full w-full bg-[#9AAE9B] hover:w-[80%] ease-in-out duration-500 transform hover:rotate-y-60 relative">
-                                <div className="absolute bg-black rounded-full h-[20px] w-[5px] top-[38%] left-[4px] "> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="absolute h-[60px] w-[135px] bottom-0 right-[20%] flex flex-col items-end">
-                        <div className="bottom-0 h-[10px] w-[58.3%] bg-[#434343]"> </div>
-                        <div className="bottom-0 h-[10px] w-[66.7%] bg-[#434343]"> </div>
-                        <div className="bottom-0 h-[10px] w-[75%] bg-[#434343]"> </div>
-                        <div className="bottom-0 h-[10px] w-[83.3333%] bg-[#434343]"> </div>
-                        <div className="bottom-0 h-[10px] w-[91.7%] bg-[#434343]"> </div>
-                        <div className="bottom-0 h-[10px] w-full bg-[#434343]"> </div>
-                    </div>*/}
+            </div> 
                     </div>
                 
                 </div>
@@ -556,4 +558,19 @@ export default function Main() {
                         <div className="bottom-0 h-[10px] w-[83.3333%] bg-[#434343]"> </div>
                         <div className="bottom-0 h-[10px] w-[91.7%] bg-[#434343]"> </div>
                         <div className="bottom-0 h-[10px] w-full bg-[#434343]"> </div>
-                    </div>*/
+                    </div>*/{/*
+                    <div className="absolute h-[80px] w-[65px] bg-[#434343] bottom-[60px] right-[20%] flex justify-end flex-col items-center rounded-t-sm">
+                        <div className="bg-black h-[75px] w-[55px] flex flex-row justify-end perspective-100">
+                            <div className="h-full w-full bg-[#9AAE9B] hover:w-[80%] ease-in-out duration-500 transform hover:rotate-y-60 relative">
+                                <div className="absolute bg-black rounded-full h-[20px] w-[5px] top-[38%] left-[4px] "> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="absolute h-[60px] w-[135px] bottom-0 right-[20%] flex flex-col items-end">
+                        <div className="bottom-0 h-[10px] w-[58.3%] bg-[#434343]"> </div>
+                        <div className="bottom-0 h-[10px] w-[66.7%] bg-[#434343]"> </div>
+                        <div className="bottom-0 h-[10px] w-[75%] bg-[#434343]"> </div>
+                        <div className="bottom-0 h-[10px] w-[83.3333%] bg-[#434343]"> </div>
+                        <div className="bottom-0 h-[10px] w-[91.7%] bg-[#434343]"> </div>
+                        <div className="bottom-0 h-[10px] w-full bg-[#434343]"> </div>
+                    </div>*/}

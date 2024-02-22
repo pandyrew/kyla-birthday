@@ -69,7 +69,7 @@ export default function Page() {
                 <div className="w-full relative h-[auto] flex justify-between items-center flex-row mb-[300px] font-inter tracking-wider text-[#767F74] pt-5 ">
                     <div>
                             <div className='mb-3 flex text-[#867272] '>
-                                {currentTime} <p className="ml-1">asdf.</p>
+                                {currentTime} <p className="ml-1">pst.</p>
                             </div>
                             <p>made with <span className="text-[#DD9E9E]">love</span> by <span className="text-[#5E9AC6]">andrew</span> and <span className="text-[#DD9E9E]">kyla&apos;s</span> favorite<span className="text-[#9AAE9B] ml-[5px]">fonts</span></p>
                             <p><span className=" text-[#5E9AC6]">pandy430</span>@gmail.com</p>
