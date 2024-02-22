@@ -75,7 +75,7 @@ function Cat(number: any, counter: any) {
 
 
 
-    const topValue = useMemo(() => setTopValue(comment.counter), ['10%']);
+    const topValue = useMemo(() => setTopValue(comment.counter), ['10%'], );
     const leftValue = useMemo(() => setLeftValue(comment.counter), ['10%']);
     
     function setTopValue(count?: number) {

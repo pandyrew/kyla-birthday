@@ -6,7 +6,7 @@ import Link from "next/link";
 import PhotoWindow from "@/app/components/photo-window";
 
 export default function Page() {
-    function folderHover() {
+    function FolderHover() {
         const [isHovering, setIsHovered] = useState(false);
         const onMouseEnter = () => setIsHovered(true);
         const onMouseLeave = () => setIsHovered(false);
@@ -65,11 +65,11 @@ export default function Page() {
                     <h1 className="text-7xl text-[#494F48] font-ultrabold font-ander tracking-wide">Selected Works</h1>
                     <p className="font-bold font-ander text-[#767F74]">2023-2024</p>
                     <div className=" w-full h-[120px] mt-5">
-                        <Link href="/photography/hawaii" className="absolute left-0 text-[#494F48] w-[150px] font-inter font-semibold flex-col justify-center items-center">{folderHover()}<span className="flex items-center justify-center">{"Hawai'i (2023)"}</span></Link>
-                        <Link href="/photography/seattle" className="absolute left-[22%] text-[#494F48] w-[150px] font-inter font-semibold flex-col justify-center items-center">{folderHover()}<span className="flex items-center justify-center">{'Seattle (2024)'} </span></Link>
+                        <Link href="/photography/hawaii" className="absolute left-0 text-[#494F48] w-[150px] font-inter font-semibold flex-col justify-center items-center">{FolderHover()}<span className="flex items-center justify-center">{"Hawai'i (2023)"}</span></Link>
+                        <Link href="/photography/seattle" className="absolute left-[22%] text-[#494F48] w-[150px] font-inter font-semibold flex-col justify-center items-center">{FolderHover()}<span className="flex items-center justify-center">{'Seattle (2024)'} </span></Link>
                         <Link href="/photography/bay-area" className="min-w-[175px] absolute right-[50%] translate-x-1/2 text-[#494F48] w-[150px] font-inter font-semibold flex-col justify-center items-center">{selectedFolder()}<span className="flex items-center justify-center">{'Bay Area (2023)'}</span></Link>
-                        <Link href="/photography/monterey" className="absolute right-[22%] text-[#494F48] w-[150px] font-inter font-semibold flex-col justify-center items-center">{folderHover()}<span className="flex items-center justify-center">{'Monterey (2024)'}</span></Link>
-                        <Link href="/photography/misc" className="absolute right-0 text-[#494F48] w-[150px] font-inter font-semibold flex-col justify-center items-center">{folderHover()}<span className="flex items-center justify-center">{'Misc (2023)'}</span></Link>
+                        <Link href="/photography/monterey" className="absolute right-[22%] text-[#494F48] w-[150px] font-inter font-semibold flex-col justify-center items-center">{FolderHover()}<span className="flex items-center justify-center">{'Monterey (2024)'}</span></Link>
+                        <Link href="/photography/misc" className="absolute right-0 text-[#494F48] w-[150px] font-inter font-semibold flex-col justify-center items-center">{FolderHover()}<span className="flex items-center justify-center">{'Misc (2023)'}</span></Link>
                     </div>
             </div>  
             <div className=" relative h-[400px] bottom-[0%] mt-[110px] w-[70%] left-[15%]">
