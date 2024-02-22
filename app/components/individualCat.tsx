@@ -130,6 +130,45 @@ function Cat(number: any, counter: any) {
         else if (count === 17) {
         const valueOfTop = '7%'
         return valueOfTop;}
+        else if (count === 18) {
+        const valueOfTop = '30%'
+        return valueOfTop;}
+        else if (count === 19) {
+        const valueOfTop = '41%'
+        return valueOfTop;}
+        else if (count === 20) {
+        const valueOfTop = '70%'
+        return valueOfTop;}
+        else if (count === 21) {
+        const valueOfTop = '39%'
+        return valueOfTop;}
+        else if (count === 22) {
+        const valueOfTop = '50%'
+        return valueOfTop;}
+        else if (count === 23) {
+        const valueOfTop = '55%'
+        return valueOfTop;}
+        else if (count === 24) {
+        const valueOfTop = '59%'
+        return valueOfTop;}
+        else if (count === 25) {
+        const valueOfTop = '45%'
+        return valueOfTop;}
+        else if (count === 26) {
+        const valueOfTop = '70%'
+        return valueOfTop;}
+        else if (count === 27) {
+        const valueOfTop = '50%'
+        return valueOfTop;}
+        else if (count === 28) {
+        const valueOfTop = '70%'
+        return valueOfTop;}
+        else if (count === 29) {
+        const valueOfTop = '76%'
+        return valueOfTop;}
+        else if (count === 30) {
+        const valueOfTop = '76%'
+        return valueOfTop;}
         return '10%'
     }
     function setLeftValue(count?: number) {
@@ -184,13 +223,56 @@ function Cat(number: any, counter: any) {
         else if (count === 17) {
         const valueOfTop = '63%'
         return valueOfTop;}
+        else if (count === 18) {
+        const valueOfTop = '63%'
+        return valueOfTop;}
+        else if (count === 19) {
+        const valueOfTop = '68.5%'
+        return valueOfTop;}
+        else if (count === 20) {
+        const valueOfTop = '68%'
+        return valueOfTop;}
+        else if (count === 21) {
+        const valueOfTop = '10.5%'
+        return valueOfTop;}
+        else if (count === 22) {
+        const valueOfTop = '30.5%'
+        return valueOfTop;}
+        else if (count === 23) {
+        const valueOfTop = '37.5%'
+        return valueOfTop;}
+        else if (count === 24) {
+        const valueOfTop = '57%'
+        return valueOfTop;}
+        else if (count === 25) {
+        const valueOfTop = '50%'
+        return valueOfTop;}
+        else if (count === 26) {
+        const valueOfTop = '45%'
+        return valueOfTop;}
+        else if (count === 27) {
+        const valueOfTop = '5%'
+        return valueOfTop;}
+        else if (count === 28) {
+        const valueOfTop = '8%'
+        return valueOfTop;}
+        else if (count === 29) {
+        const valueOfTop = '15%'
+        return valueOfTop;}
+        else if (count === 30) {
+        const valueOfTop = '85%'
+        return valueOfTop;}
+        
         return '10%'
     }
 
     if (comment.name && comment.content) {
     return(
-        <div className="drop-shadow-xl" style={{position: 'absolute', width: '7%', height: '7%', top: topValue, left: leftValue}}>
+        <div className="drop-shadow-xl flex flex-col justify-center" style={{position: 'absolute', width: '7%', height: '7%', top: topValue, left: leftValue}}>
             {Cat(comment.cat, comment.counter)}
+            <div className="font-ander drop-shadow-[0_1px_2px_rgba(0,0,0,3)] text-white absolute h-full w-full top-[19px] opacity-0 hover:opacity-100 justify-end flex flex-col items-center">
+                {comment.name}
+            </div>
         </div>
     )
     }

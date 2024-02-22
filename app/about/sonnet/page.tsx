@@ -66,7 +66,7 @@ export default function Page() {
                   
                   <div className=" w-full h-[60%] border-t-2 border-[#BABABA] p-3 pt-6">
                     <div className=" w-[60%] h-[10%] relative left-[20%] flex flex-row justify-around text-[#494F48] mt-5">
-                      <Link href='/about/sonnet' className="bg-[#E9E9E9] hover:border-3 hover:border-[#BABABA] w-[30%] h-full rounded-md flex justify-center items-center font-ander tracking-wide">
+                      <Link href='/about/sonnet' className="bg-[#E9E9E9] border-3 border-[#BABABA] w-[30%] h-full rounded-md flex justify-center items-center font-ander tracking-wide">
                         Sonnet
                       </Link>
                       <Link href='/about/haiku' className="bg-[#E9E9E9] hover:border-3 hover:border-[#BABABA] w-[30%] h-full rounded-md flex justify-center items-center font-ander tracking-wide">

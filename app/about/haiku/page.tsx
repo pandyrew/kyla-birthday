@@ -60,16 +60,16 @@ export default function Page() {
                         Didnt think just plain text would be enough.
                       </div>
                       <div>
-                        So heres a <span className="font-bold">sonnet</span> about the time we first met and a <span className="font-bold">haiku</span> about how she thinks shes a cat-mermaid-bunny hybrid.
+                        So heres a <span className="font-bold">sonnet</span> about the time we first met and a <span className="font-bold">haiku</span> about how she thinks shes a <span className="text-[#DD9E9E]">cat</span>-<span className="text-[#93BDDB]">mermaid</span>-<span className="text-[#9AAE9B]">bunny</span> hybrid.
                       </div>
                   </div>
                   
                   <div className=" w-full h-[60%] border-t-2 border-[#BABABA] p-3 pt-6">
                     <div className=" w-[60%] h-[10%] relative left-[20%] flex flex-row justify-around text-[#494F48] mt-5">
-                      <Link href='/about/sonnet' className="bg-[#E9E9E9]  hover:border-3 hover:border-[#BABABA]  w-[30%] h-full rounded-md flex justify-center items-center font-ander tracking-wide">
+                      <Link href='/about/sonnet' className="bg-[#E9E9E9] hover:border-3 hover:border-[#BABABA]  w-[30%] h-full rounded-md flex justify-center items-center font-ander tracking-wide">
                         Sonnet
                       </Link>
-                      <Link href='/about/haiku' className="bg-[#E9E9E9] hover:border-3 hover:border-[#BABABA]  w-[30%] h-full rounded-md flex justify-center items-center font-ander tracking-wide">
+                      <Link href='/about/haiku' className="bg-[#E9E9E9] border-3 border-[#BABABA]  w-[30%] h-full rounded-md flex justify-center items-center font-ander tracking-wide">
                         Haiku
                       </Link>
 

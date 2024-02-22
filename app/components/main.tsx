@@ -11,6 +11,7 @@ import { commentsCollection } from "../lib/controller";
 import howManyComments from "./comment-card";
 import { addComment } from "../lib/controller";
 import { comment } from "postcss";
+import CatCard from "./cat-card";
 
 
 
@@ -175,9 +176,9 @@ export default function Main() {
         setCurrentTime(correctHour + ":" + correctMinutes + ":" + correctSeconds + " " + whichHalf)
     }
 
-    /*window.onbeforeunload = function () {
+    window.onbeforeunload = function () {
         window.scrollTo(0, 0);
-    }*/
+    }
 
 
 
@@ -471,9 +472,11 @@ export default function Main() {
 
                             </div>
                         </div>
-                        <button onClick={handleButtonClick} className="hover:outline hover:outline-3 hover:outline-[#BABABA] hover:bg-[#DFE6F0] text-xl w-full mt-4 h-[62px] min-h-[62px] bg-[#E9E9E9] rounded-xl flex flex-col justify-center items-center">
-                            Send
-                        </button>
+                        <a href='/' className="w-auto h-auto">
+                            <button  onClick={handleButtonClick} className="hover:outline hover:outline-3 hover:outline-[#BABABA] hover:bg-[#DFE6F0] text-xl w-full mt-4 h-[62px] min-h-[62px] bg-[#E9E9E9] rounded-xl flex flex-col justify-center items-center">
+                                Send
+                            </button>
+                        </a>
                         <div className="mt-3 w-full h-2  flex flex-col">
                             
 
@@ -481,8 +484,8 @@ export default function Main() {
                         
                         
                     </div>
-                    <div className="border-t-2 border-[#BABABA]  flex p-7 justify-center relative items-center h-full w-[60%] left-[50%] -translate-x-1/2">
-                            <div className="relative w-full h-auto bg-blue-100">
+                    <div className="border-t-2 border-[#BABABA] flex p-7 flex-col justify-center relative items-center h-full w-[60%] left-[50%] -translate-x-1/2">
+                            <div className="relative w-full h-auto">
                             <Image 
                             src="/cat-cafe.jpeg"
                             width={5000}
@@ -494,9 +497,14 @@ export default function Main() {
                             
                             
                             </div>
+                            
+                            
 
                             
                         </div>
+                    <div className="w-[60%] left-[20%] relative"><CatCard></CatCard></div>
+                                                    
+
                     <div className="w-[60%] left-[20%] relative h-[auto] flex justify-start flex-col mb-[300px] mt-1 font-inter tracking-wider text-[#767F74] border-t-2 border-[#867272] pt-6">
                             <div className='mb-3 flex text-[#867272]'>
                                 {currentTime} <p className="ml-1">pst.</p>

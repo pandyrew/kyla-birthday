@@ -10,40 +10,76 @@ interface IProps {
     comment: NewCommentType;
 }
 
-function Cat(number: any) {
+function Cat(number: any, counter: any) {
         if (number === 1) {
           return (
-            <Image src="/cat-icon-b.png" width={70} height={70} alt="logo" />
+            <Image 
+                src="/cat-cafe-cats/black-cat.png"
+                sizes='100vw'
+                width={0}
+                height={0}        
+                alt='asdf'      
+                style={{ width: "100%", height: "auto" }}                  
+            ></Image>
           );
         } else if (number === 2){
           return (
-            <Image src="/cat-icon-y.png" width={70} height={70} alt="logo" />
+            <Image 
+                src="/cat-cafe-cats/blue-cat.png"
+                sizes='100vw'
+                width={0}
+                height={0}        
+                alt='asdf'      
+                style={{ width: "100%", height: "auto" }}                  
+            ></Image>
           );
         } else if (number === 3){
             return (
-              <Image src="/cat-icon-g.jpeg" width={70} height={70} alt="logo" />
-            );
+            <Image 
+                src="/cat-cafe-cats/green-cat.png"
+                sizes='100vw'
+                width={0}
+                height={0}        
+                alt='asdf'      
+                style={{ width: "100%", height: "auto" }}                  
+            ></Image>            );
         } else if (number === 0){
             return (
-                <Image src="/cat-icon-r.png" width={70} height={70} alt="logo" />
-            )
-        }
-
+            <Image 
+                src="/cat-cafe-cats/white-cat.png"
+                sizes='100vw'
+                width={0}
+                height={0}        
+                alt='asdf'      
+                style={{ width: "100%", height: "auto" }}                  
+            ></Image>            )
+        } else if (number === 4){
+            return (
+            <Image 
+                src="/cat-cafe-cats/yellow-cat.png"
+                sizes='100vw'
+                width={0}
+                height={0}        
+                alt='asdf'      
+                style={{ width: "100%", height: "auto" }}                  
+            ></Image>            )
+        }        
+        
     }
     
 
 
-export default function Individual({comment}: IProps) {
+export default function IndividualComment({comment}: IProps) {
     console.log(comment.counter)
     if (comment.name && comment.content) {
     return(
         <div className="border-t-2 border-[#BABABA] pb-3 pt-10 mb-2 h-auto w-full font-inter">
             <div className="text-xl mb-10 gap-3 flex flex-row">
                 <div className="mt-2">
-                    {Cat(comment.cat)}
+                    {Cat(comment.cat, comment.counter)}
                 </div>
-                <div className="min-h-[120px] flex flex-col justify-start items-start h-auto w-full break-words">
-                    <div className="min-h-[40px] font-ultrabold flex flex-row mb-2 items-center">
+                <div className="min-h-[120px] text-[#494F48] flex flex-col justify-start items-start h-auto w-full break-words">
+                    <div className="min-h-[40px] font-ultrabold flex flex-row mb-2 items-center font-ander">
                         <div>
                             {comment.name}
                         </div>
@@ -51,7 +87,7 @@ export default function Individual({comment}: IProps) {
                             1 year ago
                         </div>
                     </div>
-                    <div className="min-h-[40px] font-bold text-left text-[#647062]">
+                    <div className="min-h-[40px] font-ander font-bold text-left text-[#647062]">
                         {comment.content}
                     </div>               
                 </div>

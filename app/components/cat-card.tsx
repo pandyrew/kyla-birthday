@@ -9,7 +9,7 @@ import IndividualComment from "./individualCommentCard";
 interface countType {
     count?: number;
 }
-export function CommentCard() {
+export function CatCard() {
     
     const [comments, setComments] = React.useState<NewCommentType []>([]);
     const [exportComments, setExportComments] = React.useState<NewCommentType []>([]);
@@ -37,15 +37,13 @@ export function CommentCard() {
         <div className="">
             
             {comments  && comments.length ? (
-                <div className="w-auto h-auto">
-                <div className="mb-5 flex flex-col-reverse w-auto h-auto">
+                <div className="mb-5 flex flex-col-reverse">
                     {
                         
                         comments.map((commenting, index) => (
-                            <Individual key={index} comment={commenting}/>
+                            <IndividualComment key={index} comment={commenting}/>
                         ))
                     }
-                </div>
                 </div>
             ) : (
                 <div>
@@ -58,4 +56,4 @@ export function CommentCard() {
     )
 }
 
-export default CommentCard;
+export default CatCard;
