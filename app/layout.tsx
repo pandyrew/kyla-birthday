@@ -15,6 +15,65 @@ const grand = localfont({
   ],
   variable: "--font-grand",
 });
+const aurora = localfont({
+  src: [
+    {
+      path: "../public/fonts/AURORA-PRO.otf",
+    },
+  ],
+  variable: "--font-aurora",
+});
+
+const coco = localfont({
+  src: [
+    {
+      path: "../public/fonts/coco.ttf",
+    },
+  ],
+  variable: "--font-coco",
+});
+
+const laterlocks = localfont({
+  src: [
+    {
+      path: "../public/fonts/Laterlocks.otf",
+    },
+  ],
+  variable: "--font-laterlocks",
+});
+
+const mahar = localfont({
+  src: [
+    {
+      path: "../public/fonts/mahar.ttf",
+    },
+  ],
+  variable: "--font-mahar",
+});
+const queen = localfont({
+  src: [
+    {
+      path: "../public/fonts/queen.ttf",
+    },
+  ],
+  variable: "--font-queen",
+});
+const romantic = localfont({
+  src: [
+    {
+      path: "../public/fonts/romantic.ttf",
+    },
+  ],
+  variable: "--font-romantic",
+});
+const tommy = localfont({
+  src: [
+    {
+      path: "../public/fonts/tommy.ttf",
+    },
+  ],
+  variable: "--font-tommy",
+});
 
 const ander = localfont({
     src: [
@@ -27,27 +86,7 @@ const ander = localfont({
         path: '../public/fonts/AndersonGrotesk-Bold.otf',
         weight: '500',
         style: 'bold',
-      },/*
-      {
-        path: '../../public/fonts/AndersonGrotesk-BoldOblique.otf',
-        weight: '400',
-        style: 'oblique',
-      },
-      {
-        path: '../../public/fonts/AndersonGrotesk-Bold.otf',
-        weight: '400',
-        style: 'normal',
-      },
-      {
-        path: '../../public/fonts/AndersonGrotesk-UltraBold.otf',
-        weight: '500',
-        style: 'normal',
-      },
-      {
-        path: '../../fonts/Anderson/AndersonGrotesk-Black.otf',
-        weight: '600',
-        style: 'normal',
-      }*/
+      }
     ],
     variable: "--font-ander"
 });
@@ -63,7 +102,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${ander.variable} ${grand.variable}`}>
+    <html lang="en" className={`${ander.variable} ${grand.variable} ${aurora.variable} ${coco.variable} ${laterlocks.variable} ${mahar.variable} ${queen.variable} ${tommy.variable} ${romantic.variable}`}>
       <body>{children}</body>
     </html>
   );

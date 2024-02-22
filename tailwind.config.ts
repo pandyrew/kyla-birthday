@@ -30,6 +30,13 @@ const config: Config = {
       fontFamily: {
         ander: ["var(--font-ander)"],
         grand: ["var(--font-grand)"],
+        aurora: ["var(--font-aurora)"],
+        coco: ["var(--font-coco)"],
+        laterlocks: ["var(--font-laterlocks)"],
+        mahar: ["var(--font-mahar)"],
+        queen: ["var(--font-queen)"],
+        romantic: ["var(--font-romantic)"],
+        tommy: ["var(--font-tommy)"],
       },
     },
   },

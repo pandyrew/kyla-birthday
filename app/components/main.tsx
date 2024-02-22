@@ -10,6 +10,8 @@ import firebase, { onSnapshot, QuerySnapshot, DocumentData } from "firebase/fire
 import { commentsCollection } from "../lib/controller";
 import howManyComments from "./comment-card";
 import { addComment } from "../lib/controller";
+import { set } from "mongoose";
+import { comment } from "postcss";
 
 
 
@@ -28,37 +30,64 @@ export default function Main() {
     const [comments, setComments] = useState([]);
     const [selectedCommentIndex, setSelectedCommentIndex] = useState(0)
     const descriptors = ['kyla', 'beauty', 'style', 'sillyness!', 'barista moments', 'loved ones']
+    const colorDescriptors = ['#58835A', '#84567F', '#5E9AC6', '#D1AB4B', '#533C35', '#DD9E9E']
+    const [commentCountVarible, setCommentCountVariable] = useState('')
+
     const [word, setWord] = useState('kyla')
+    const [random, setRandom] = useState(0)
+    const [currentTime , setCurrentTime] = useState('')
+
+
 
     window.addEventListener('scroll', ()=>
     {
         const scrolled = window.scrollY
-        console.log(scrolled)
         if (scrolled <= 473.5){
             setWord(descriptors[0])
+            setCommentCountVariable(colorDescriptors[0])
+            console.log(commentCountVarible)
         }
         else
         if (scrolled >= 473.5 && scrolled < 1563){
             setWord(descriptors[1])
+            setCommentCountVariable(colorDescriptors[1])
+
         }
         else
         if (scrolled >= 1563 && scrolled < 3437){
             setWord(descriptors[2])
+            setCommentCountVariable(colorDescriptors[2])
+
         }
         else
         if (scrolled >= 3437 && scrolled < 4586){
             setWord(descriptors[3])
+            setCommentCountVariable(colorDescriptors[3])
+
         }
         else
         if (scrolled >= 4586 && scrolled < 5668){
             setWord(descriptors[4])
+            setCommentCountVariable(colorDescriptors[4])
         }
         else
         if (scrolled >= 5668){
             setWord(descriptors[5])
+            setCommentCountVariable(colorDescriptors[5])
         }
         
     })
+
+    const commentCountStyle = {
+        color: commentCountVarible
+    }
+
+    const [fontNumber, setFontNumber] = useState(0)
+    const [revolvingFont, setRevolvingFont] = useState('aurora')
+    const fontStyle = {
+        fontFamily: revolvingFont
+        }   
+
 
     function handleNameChange(e: any){
         e.preventDefault();
@@ -73,9 +102,105 @@ export default function Main() {
         console.log('button clicked')
         console.log(name)
         console.log(content)
-        addComment({name: name, content: content})
+        if (name === '' || content === ''){
+            return
+        }
+        addComment({name: name, content: content, cat: random})
         setName('');
         setContent('');
+    }
+
+    function handleCatClick(e: any){
+        if (random === 3){
+            setRandom(0)
+        }else { 
+        setRandom(random + 1)
+        }
+    }
+    const [number , setNumber] = useState(0)
+
+    function Font(ff: number) {
+        console.log('font number is ' + ff)
+        setFontNumber(ff)
+        if (fontNumber === 0){
+            setRevolvingFont("laterlocks")
+        } else if (fontNumber === 1){
+            setRevolvingFont("grand")
+        } else if (fontNumber === 2){
+            setRevolvingFont("aurora")
+        }
+        else if (fontNumber === 3){
+            setRevolvingFont("coco")
+        } else if (fontNumber === 4){
+            setRevolvingFont("tommy")
+        }
+    }
+    
+    setInterval(updateTime, 1000)
+
+    function updateTime() {
+        var time = new Date();
+        var correctSeconds = time.getSeconds().toString();
+        var correctHour = time.getHours().toString();
+        var correctMinutes = time.getMinutes().toString();
+        var whichHalf = 'am'
+
+        if (parseInt(correctMinutes) < 10){
+            correctMinutes = "0" + correctMinutes.toString()
+        }
+        if (parseInt(correctHour) === 0){
+            correctHour = '12'
+        }
+        if (parseInt(correctHour) > 12){
+            correctHour = (parseInt(correctHour) - 12).toString()
+        }
+        if (parseInt(correctSeconds) < 10){
+            correctSeconds = "0" + correctSeconds.toString()
+        }
+        if (parseInt(time.getHours().toString()) > 11){
+            whichHalf = 'pm'
+        }
+        /*if (parseInt(correctSeconds) % 10 === (0||1)){
+            Font(0)
+        } else if (parseInt(correctSeconds) % 10 === (2||3)) {
+            Font(1)
+        } else if (parseInt(correctSeconds) % 10 === (4||5)){
+            Font(2)
+        } else if (parseInt(correctSeconds) % 10 === (6||7)){
+            Font(3)
+        }
+        else if (parseInt(correctSeconds) % 10 === (8||9)){
+            Font(4)
+        }*/
+
+        setCurrentTime(correctHour + ":" + correctMinutes + ":" + correctSeconds + " " + whichHalf)
+    }
+
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+    }
+
+
+
+    function Cat(number: any) {
+        if (number === 1) {
+          return (
+            <Image src="/cat-icon-b.png" width={70} height={70} alt="logo" />
+          );
+        } else if (number === 2){
+          return (
+            <Image src="/cat-icon-y.png" width={70} height={70} alt="logo" />
+          );
+        } else if (number === 3){
+            return (
+              <Image src="/cat-icon-g.jpeg" width={70} height={70} alt="logo" />
+            );
+        } else if (number === 0){
+            return (
+                <Image src="/cat-icon-r.png" width={70} height={70} alt="logo" />
+            )
+        }
+
     }
 
 
@@ -84,18 +209,19 @@ export default function Main() {
 
     return (
         <div className="h-full w-full ">
+            
                 <div className="font-ander tracking-wide h-[30%] flex-col p-10 items-center 
                                 text-center text-[#494F48] text-6.5xl font-ultrabold mb-[250px] sticky 
                                 top-20 flex justify-center h-screen/2 w-full ">
                     <div className="relative">
                         lets celebrate 18 years of 
                     </div>
-                    <div className="text-[#DD9E9E] relative font-ander -mt-3">
-                        {word}
+                    <div className="text-[#58835A] relative font-ander -mt-3">
+                        <span style={commentCountStyle}>{word}</span>
                     </div>
                 
                 </div>
-            <div className=" w-full h-full p-10 max-h-[7500px] border-b-2 border-[#6B6B6B]">
+            <div className=" w-full h-full p-10 max-h-[7500px]  border-b-2 border-[#6B6B6B]">
                 <div className="z-10 w-full columns-3 h-[800px]">
                     <div className="absolute right-[50%] top-[50%] translate-x-1/2">
                         <PhotoWindow
@@ -316,18 +442,18 @@ export default function Main() {
                         ></PhotoWindow>
                     </div>
                 </div>
-                <div className="flex justify-center w-[60%] left-[20%] -top-[3500px] h-[1000px] relative ">
+                <div className="flex justify-center w-full -top-[3500px] min-h-[1000px] relative flex-col">
                     <div className="text-[#494F48] font-ander flex 
-                                    text-center w-full font-ultrabold text-6.5xl flex-col ">
+                                    text-center font-ultrabold text-6.5xl flex-col w-[60%] left-[20%] relative">
                         <div className="flex flex-col justify-between ">
                             <div className="">
                                 <div className="h-auto flex justify-center flex-row">{commentCount} Birthday Wishes So Far<p className="text-[#DD9E9E]">...</p></div>
                                 <div className=" text-[#767F74] h-auto text-xl -mt-3 font-bold w-full mb-10">add a birthday wish below! tell <span className="text-[#9AAE9B]">Kyla</span> in person too of course</div>
                             </div>
-                            <div className="text-[#767F74]  min-h-[60px] h-auto text-xl -mt-3 font-bold w-full justify-start flex">
+                            <div className="text-[#767F74] mb-1 min-h-[60px] h-auto text-xl -mt-3 font-bold w-full justify-start flex">
                             <Image
-                            src="/clickme.jpeg"
-                            width={110}
+                            src="/clickme2.png"
+                            width={125}
                             height={60}
                             alt="asdf"
                             />
@@ -336,14 +462,11 @@ export default function Main() {
                         </div>
                         <div className="h-auto w-full flex flex-row gap-4 ">
                             <div className="mt-1">
-                                <Image
-                                src="/kyla-photos/cat-g.jpeg"
-                                width={70}
-                                height={70}
-                                alt="asdf"
-                                />
+                                <div onClick={handleCatClick} className="h-auto w-auto">
+                                    {Cat(random)}
+                                </div>
                             </div>
-                            <div className="h-auto w-full rounded-xl outline outline-3 outline-[#BABABA] p-4 flex flex-col">
+                            <div className="h-auto w-full rounded-xl outline outline-3 outline-[#BABABA] p-4 flex flex-col font-inter">
                                 <textarea value={name} onChange={(e)=>handleNameChange(e)} placeholder="Your name..." rows={1} className="bg-[#F6F5EF] tracking-wide font-ultrabold text-xl p-2 pb-0 w-full h-auto min-h-[45px] border-b-2 border-[#BABABA]"></textarea>
                                 <textarea value={content} onChange={(e)=>handleContentChange(e)} placeholder="Leave a nice note..." rows={5} className="bg-[#F6F5EF] text-[#767F74] font-bold text-xl p-2 pb-1 w-full h-auto min-h-[45px]"></textarea>
 
@@ -352,26 +475,56 @@ export default function Main() {
                         <button onClick={handleButtonClick} className="hover:outline hover:outline-3 hover:outline-[#BABABA] hover:bg-[#DFE6F0] text-xl w-full mt-4 h-[62px] min-h-[62px] bg-[#E9E9E9] rounded-xl flex flex-col justify-center items-center">
                             Send
                         </button>
-                        <div className="mt-3 w-full h-2 border-b-2 border-[#BABABA] flex flex-col">
+                        <div className="mt-3 w-full h-2  flex flex-col">
                             
 
                         </div>
-                        <div className="flex flex-col">
+                        <div className="flex flex-col-reverse">
                             <CommentCard></CommentCard>
                         </div>
+                        
+                    </div>
+                    <div className="w-[60%] left-[20%] relative h-[auto] flex justify-start flex-col mb-[300px] mt-1 font-inter tracking-wider text-[#767F74] border-t-2 border-[#867272] pt-6">
+                            <div className='mb-3 flex text-[#867272]'>
+                                {currentTime} <p className="ml-1">pst.</p>
+                            </div>
+                            <p className="">made with <span className="text-[#DD9E9E]">love</span> by <span className="text-[#5E9AC6]">andrew</span> and <span className="text-[#DD9E9E]">kyla's</span> favorite<span style={fontStyle} className="text-[#9AAE9B] ml-[5px]">fonts</span></p>
+                            <p><span className=" text-[#5E9AC6]">pandy430</span>@gmail.com</p>
+                    </div>
+                    <div className="absolute h-[80px] w-[65px] bg-[#434343] bottom-[60px] right-[20%] flex justify-end flex-col items-center rounded-t-sm">
+                        <div className="bg-black h-[75px] w-[55px] flex flex-row justify-end perspective-100">
+                            <div className="h-full w-full bg-[#9AAE9B] hover:w-[80%] ease-in-out duration-500 transform hover:rotate-y-60 relative">
+                                <div className="absolute bg-black rounded-full h-[20px] w-[5px] top-[38%] left-[4px] "> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="absolute h-[60px] w-[135px] bottom-0 right-[20%] flex flex-col items-end">
+                        <div className="bottom-0 h-[10px] w-[58.3%] bg-[#434343]"> </div>
+                        <div className="bottom-0 h-[10px] w-[66.7%] bg-[#434343]"> </div>
+                        <div className="bottom-0 h-[10px] w-[75%] bg-[#434343]"> </div>
+                        <div className="bottom-0 h-[10px] w-[83.3333%] bg-[#434343]"> </div>
+                        <div className="bottom-0 h-[10px] w-[91.7%] bg-[#434343]"> </div>
+                        <div className="bottom-0 h-[10px] w-full bg-[#434343]"> </div>
                     </div>
                 </div>
+                
                 </div>
+                
             </div>
     )
 }
-/*
-<div className="font-ander tracking-wide flex-col
-                                text-center text-[#494F48] text-6.5xl font-ultrabold mb-[250px] 
-                                top-20 flex justify-center w-full bg-blue-100">
-                    <div className="relative">
-                        lets celebrate 18 years of
+/*<div className="absolute h-[80px] w-[65px] bg-[#434343] bottom-[60px] right-[20%] flex justify-end flex-col items-center rounded-t-sm">
+                        <div className="bg-black h-[75px] w-[55px] flex flex-row justify-end perspective-100">
+                            <div className="h-full w-full bg-[#9AAE9B] hover:w-[80%] ease-in-out duration-500 transform hover:rotate-y-60 relative">
+                                <div className="absolute bg-black rounded-full h-[20px] w-[5px] top-[38%] left-[4px] "> </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className="relative font-ander -mt-3">
-                        Kyla
+                    <div className="absolute h-[60px] w-[135px] bottom-0 right-[20%] flex flex-col items-end">
+                        <div className="bottom-0 h-[10px] w-[58.3%] bg-[#434343]"> </div>
+                        <div className="bottom-0 h-[10px] w-[66.7%] bg-[#434343]"> </div>
+                        <div className="bottom-0 h-[10px] w-[75%] bg-[#434343]"> </div>
+                        <div className="bottom-0 h-[10px] w-[83.3333%] bg-[#434343]"> </div>
+                        <div className="bottom-0 h-[10px] w-[91.7%] bg-[#434343]"> </div>
+                        <div className="bottom-0 h-[10px] w-full bg-[#434343]"> </div>
                     </div>*/

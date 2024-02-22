@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image";
 import { useState } from "react";
-
+import Link from "next/link";
 export default function Navbar() {
     const Instagram = () => {
         const [isHovering, setIsHovered] = useState(false);
@@ -9,7 +9,6 @@ export default function Navbar() {
         const onMouseLeave = () => setIsHovered(false);
         return (
           <div
-            className=""
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
           >
@@ -27,8 +26,8 @@ export default function Navbar() {
     
 
 
-    <div className="bg-[#F6F5EF] w-full h-16 z-10 border-2 border-b-[#7B7B7B] fixed items-center">
-        <div className='tracking-wider font-grand fixed right-[46.9%] top-5 text-lg flex flex-row items-center'>
+    <div className="bg-[#F6F5EF] w-full h-16 z-10 border-2 border-b-[#7B7B7B] hover:border-b-[#D9D9D9] fixed items-center">
+        <Link href="/" className='tracking-wider font-grand fixed right-[46.9%] top-5 text-lg flex flex-row items-center'>
             <div className="text-[#373634]">
                 kyla ulu
             </div>
@@ -40,17 +39,17 @@ export default function Navbar() {
                 alt="asdf"
                 />
             </div>
-        </div>
+        </Link>
         <div className="w-full h-full flex flex-row justify-between items-center p-7">
             <div className="flex flex-row gap-12 font-ander font-bold">
-                <a href='#' className="hover:text-[#DD9E9E]">
+                <Link href='/photography' className="hover:text-[#DD9E9E]">
                     photography
-                </a>
-                <a href='#' className="hover:text-[#E0DB5E]">
+                </Link>
+                <Link href='/about/sonnet' className="hover:text-[#E0DB5E]">
                     about
-                </a>
+                </Link>
             </div>
-            <a href="https://www.instagram.com/kylaulug/">
+            <a href="https://www.instagram.com/kylaulug/}">
                 <Instagram>
 
                 </Instagram>
