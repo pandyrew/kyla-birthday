@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 import PhotoWindow from "../components/photo-window";
-import { set } from "mongoose";
 
 export default function Page() {
     /*function folderHover() {
