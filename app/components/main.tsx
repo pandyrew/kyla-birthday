@@ -37,7 +37,7 @@ export default function Main() {
     const [currentTime , setCurrentTime] = useState('')
 
 
-
+    if (typeof window !== "undefined") {
     window.addEventListener('scroll', ()=>
     {
         const scrolled = window.scrollY
@@ -75,7 +75,7 @@ export default function Main() {
             setCommentCountVariable(colorDescriptors[5])
         }
         
-    })
+    })}
 
     const commentCountStyle = {
         color: commentCountVarible
