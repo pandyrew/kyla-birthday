@@ -99,7 +99,7 @@ export default function Page() {
                             <div className='mb-3 flex text-[#867272]'>
                                 {currentTime} <p className="ml-1">pst.</p>
                             </div>
-                            <p className="">made with <span className="text-[#DD9E9E]">love</span> by <span className="text-[#5E9AC6]">andrew</span> and <span className="text-[#DD9E9E]">kyla's</span> favorite<span className="text-[#9AAE9B] ml-[5px]">fonts</span></p>
+                            <p className="">made with <span className="text-[#DD9E9E]">love</span> by <span className="text-[#5E9AC6]">andrew</span> and <span className="text-[#DD9E9E]">kyla&apos;s</span> favorite<span className="text-[#9AAE9B] ml-[5px]">fonts</span></p>
                             <p><span className=" text-[#5E9AC6]">pandy430</span>@gmail.com</p>
                     </div>
             </div> 

@@ -40,8 +40,8 @@ export function CommentCard() {
                 <div className="mb-5 flex flex-col-reverse">
                     {
                         
-                        comments.map((commenting) => (
-                            <Individual comment={commenting}/>
+                        comments.map((commenting, index) => (
+                            <Individual key={index} comment={commenting}/>
                         ))
                     }
                 </div>
