@@ -158,7 +158,7 @@ export default function Page() {
                     top-[430px] w-[26%] flex flex-col justify-center bg-[#E9E9E9] text-[#494F48] 
                     border-3 border-[#BABABA] font-inter tracking-wide rounded-xl p-5 min-w-[270px] translate-x-1/2">
                         <div className="font-bold pb-3">May</div>
-                        <div>On my most memorable day, May 6th, 2023, I met Kyla. In that month of May, since I was leaving for a trip to Korea at the start of June, we squeezed in countless enjoyable dates and soaked up each other's company.</div>
+                        <div>On my most memorable day, May 6th, 2023, I met Kyla. In that month of May, since I was leaving for a trip to Korea at the start of June, we squeezed in countless enjoyable dates and soaked up each other&apos;s company.</div>
                     </div>
                     
                     <div className="absolute right-[280px] top-[1500px]">
