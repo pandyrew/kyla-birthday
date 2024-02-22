@@ -111,11 +111,12 @@ export default function Main() {
     }
 
     function handleCatClick(e: any){
-        if (random === 3){
+        if (random === 4){
             setRandom(0)
         }else { 
         setRandom(random + 1)
         }
+        console.log('this is random:' + random)
     }
     const [number , setNumber] = useState(0)
 
@@ -184,23 +185,28 @@ export default function Main() {
 
 
     function Cat(number: any) {
-        if (number === 1) {
-          return (
-            <Image src="/cat-icon-b.png" width={70} height={70} alt="logo" />
-          );
-        } else if (number === 2){
-          return (
-            <Image src="/cat-icon-y.png" width={70} height={70} alt="logo" />
-          );
-        } else if (number === 3){
+        if (number === 1){
             return (
-              <Image src="/cat-icon-g.jpeg" width={70} height={70} alt="logo" />
-            );
-        } else if (number === 0){
-            return (
-                <Image src="/cat-icon-r.png" width={70} height={70} alt="logo" />
+                <Image src="/cat-cafe-cats/black-cat.png" width={70} height={70} alt="logo" />
             )
         }
+        else if (number === 2) {
+          return (
+            <Image src="/cat-cafe-cats/blue-cat.png" width={70} height={70} alt="logo" />
+          );
+        } else if (number === 3){
+          return (
+            <Image src="/cat-cafe-cats/green-cat.png" width={70} height={70} alt="logo" />
+          );
+        } else if (number === 0){
+            return (
+              <Image src="/cat-cafe-cats/white-cat.png" width={70} height={70} alt="logo" />
+            );
+        } else if (number === 4){
+        return (
+          <Image src="/cat-cafe-cats/yellow-cat.png" width={70} height={70} alt="logo" />
+        );
+        } 
 
     }
 
