@@ -10,7 +10,6 @@ import firebase, { onSnapshot, QuerySnapshot, DocumentData } from "firebase/fire
 import { commentsCollection } from "../lib/controller";
 import howManyComments from "./comment-card";
 import { addComment } from "../lib/controller";
-import { set } from "mongoose";
 import { comment } from "postcss";
 
 
