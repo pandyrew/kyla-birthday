@@ -120,22 +120,7 @@ export default function Main() {
     }
     const [number , setNumber] = useState(0)
 
-    function Font(ff: number) {
-        console.log('font number is ' + ff)
-        setFontNumber(ff)
-        if (fontNumber === 0){
-            setRevolvingFont("laterlocks")
-        } else if (fontNumber === 1){
-            setRevolvingFont("grand")
-        } else if (fontNumber === 2){
-            setRevolvingFont("aurora")
-        }
-        else if (fontNumber === 3){
-            setRevolvingFont("coco")
-        } else if (fontNumber === 4){
-            setRevolvingFont("tommy")
-        }
-    }
+
     
     setInterval(updateTime, 1000)
 
@@ -455,7 +440,7 @@ export default function Main() {
                         <div className="flex flex-col justify-between ">
                             <div className="">
                                 <div className="h-auto flex justify-center flex-row">{commentCount} Birthday Wishes So Far<p className="text-[#DD9E9E]">...</p></div>
-                                <div className=" text-[#767F74] h-auto text-xl -mt-3 font-bold w-full mb-10">add a birthday wish below! tell <span className="text-[#9AAE9B]">Kyla</span> in person too of course</div>
+                                <div className=" text-[#767F74] h-auto text-xl -mt-3 font-bold w-full mb-10">add a birthday wish below and join the cafe as a cat! tell <span className="text-[#9AAE9B]">Kyla</span> in person too of course</div>
                             </div>
                             <div className="text-[#767F74] mb-1 min-h-[60px] h-auto text-xl -mt-3 font-bold w-full justify-start flex">
                             <Image
@@ -512,13 +497,29 @@ export default function Main() {
                     <div className="w-[60%] left-[20%] relative"><CatCard></CatCard></div>
                                                     
 
-                    <div className="w-[60%] left-[20%] relative h-[auto] flex justify-start flex-col mb-[300px] mt-1 font-inter tracking-wider text-[#767F74] border-t-2 border-[#867272] pt-6">
-                            <div className='mb-3 flex text-[#867272]'>
+                    {/*footer*/}
+            <div className="mt-4 border-t-2 border-[#867272] relative h-auto bottom-[0%] w-[70%] left-[15%] ">
+                <div className="w-full relative h-[auto] flex justify-between items-center flex-row mb-[300px] font-inter tracking-wider text-[#767F74] pt-5 ">
+                    <div>
+                            <div className='mb-3 flex text-[#867272] '>
                                 {currentTime} <p className="ml-1">pst.</p>
                             </div>
-                            <p className="">made with <span className="text-[#DD9E9E]">love</span> by <span className="text-[#5E9AC6]">andrew</span> and <span className="text-[#DD9E9E]">kyla&apos;s</span> favorite<span style={fontStyle} className="text-[#9AAE9B] ml-[5px]">fonts</span></p>
+                            <p>made with <span className="text-[#DD9E9E]">love</span> by <span className="text-[#5E9AC6]">andrew</span> and <span className="text-[#DD9E9E]">kyla&apos;s</span> favorite<span className="text-[#9AAE9B] ml-[5px]">fonts</span></p>
                             <p><span className=" text-[#5E9AC6]">pandy430</span>@gmail.com</p>
                     </div>
+                    <a href='https://github.com/pandyrew/kyla-birthday'className="w-[40px] h-[40px]">
+                        <Image 
+                            src="/github.png"
+                            sizes='100vw'
+                            width={0}
+                            height={0}        
+                            alt='asdf'      
+                            style={{ width: "100%", height: "auto" }}                  
+                        ></Image>   
+
+                    </a>
+                    </div>
+            </div> {/*
                     <div className="absolute h-[80px] w-[65px] bg-[#434343] bottom-[60px] right-[20%] flex justify-end flex-col items-center rounded-t-sm">
                         <div className="bg-black h-[75px] w-[55px] flex flex-row justify-end perspective-100">
                             <div className="h-full w-full bg-[#9AAE9B] hover:w-[80%] ease-in-out duration-500 transform hover:rotate-y-60 relative">
@@ -533,8 +534,8 @@ export default function Main() {
                         <div className="bottom-0 h-[10px] w-[83.3333%] bg-[#434343]"> </div>
                         <div className="bottom-0 h-[10px] w-[91.7%] bg-[#434343]"> </div>
                         <div className="bottom-0 h-[10px] w-full bg-[#434343]"> </div>
+                    </div>*/}
                     </div>
-                </div>
                 
                 </div>
                 

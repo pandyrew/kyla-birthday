@@ -94,13 +94,27 @@ export default function Page() {
                 />
                 </div>
             </div> 
-            <div className="mt-4 border-t-2 border-[#867272] relative h-[400px] bottom-[0%] w-[70%] left-[15%]">
-                <div className="w-full relative h-[auto] flex justify-start flex-col mb-[300px] mt-1 font-inter tracking-wider text-[#767F74] pt-6">
-                            <div className='mb-3 flex text-[#867272]'>
+            {/*footer*/}
+            <div className="mt-4 border-t-2 border-[#867272] relative h-auto bottom-[0%] w-[70%] left-[15%] ">
+                <div className="w-full relative h-[auto] flex justify-between items-center flex-row mb-[300px] font-inter tracking-wider text-[#767F74] pt-5 ">
+                    <div>
+                            <div className='mb-3 flex text-[#867272] '>
                                 {currentTime} <p className="ml-1">pst.</p>
                             </div>
-                            <p className="">made with <span className="text-[#DD9E9E]">love</span> by <span className="text-[#5E9AC6]">andrew</span> and <span className="text-[#DD9E9E]">kyla&apos;s</span> favorite<span className="text-[#9AAE9B] ml-[5px]">fonts</span></p>
+                            <p>made with <span className="text-[#DD9E9E]">love</span> by <span className="text-[#5E9AC6]">andrew</span> and <span className="text-[#DD9E9E]">kyla&apos;s</span> favorite<span className="text-[#9AAE9B] ml-[5px]">fonts</span></p>
                             <p><span className=" text-[#5E9AC6]">pandy430</span>@gmail.com</p>
+                    </div>
+                    <a href='https://github.com/pandyrew/kyla-birthday'className="w-[40px] h-[40px]">
+                        <Image 
+                            src="/github.png"
+                            sizes='100vw'
+                            width={0}
+                            height={0}        
+                            alt='asdf'      
+                            style={{ width: "100%", height: "auto" }}                  
+                        ></Image>   
+
+                    </a>
                     </div>
             </div> 
             

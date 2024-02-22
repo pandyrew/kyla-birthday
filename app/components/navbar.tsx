@@ -48,6 +48,9 @@ export default function Navbar() {
                 <Link href='/about/sonnet' className="hover:text-[#E0DB5E]">
                     about
                 </Link>
+                <Link href='/kylandrew' className="hover:text-[#93BDDB]">
+                    kyla+andrew
+                </Link>
             </div>
             <a href="https://www.instagram.com/kylaulug/}">
                 <Instagram>
