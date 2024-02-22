@@ -34,7 +34,7 @@ export default function Page() {
     {
         const scrolled = window.scrollY
         console.log(scrolled)
-        if (scrolled <= 550){
+        if (scrolled <= 551){
             setMay(['700', '#DD9E9E'])
             setJune(['', ''])
             setJuly(['', ''])
