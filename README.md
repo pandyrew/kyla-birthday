@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+My coding project, built with Next.js, React, TypeScript, hosted on Vercel, utilizes Firestore for database functionality, and employs Tailwind CSS for styling,
+
 ## Getting Started
 
 First, run the development server:
