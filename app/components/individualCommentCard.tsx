@@ -83,7 +83,7 @@ export default function IndividualComment({comment}: IProps) {
                             {comment.name}
                         </div>
                         <div className="ml-3 font-bold text-base tracking-normal text-[#767F74]">
-                            1 year ago
+                            
                         </div>
                     </div>
                     <div className="min-h-[40px] font-ander font-bold text-left text-[#647062]">

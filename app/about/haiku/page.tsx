@@ -85,6 +85,8 @@ export default function Page() {
                     </div>
                   </div>
           </div>
+          
+          
             {/*footer*/}
             <div className="mt-4 border-t-2 border-[#867272] relative h-auto bottom-[0%] w-[70%] left-[15%] ">
                 <div className="w-full relative h-[auto] flex justify-between items-center flex-row mb-[300px] font-inter tracking-wider text-[#767F74] pt-5 ">
