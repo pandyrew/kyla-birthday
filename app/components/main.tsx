@@ -125,7 +125,6 @@ export default function Main() {
         addComment({name: name, content: content, cat: random, counter: commentCount+1})
         setName('');
         setContent('');
-        alert('added successfully')
     }
 
     function handleCatClick(e: any){
