@@ -42,6 +42,7 @@ export default function Main() {
     // Clean up the subscription on unmount
     return () => unsubscribe();
     }, []);
+
     const [name, setName] = useState('');
     const [content, setContent] = useState('');
     const [comments, setComments] = useState([]);
@@ -107,11 +108,10 @@ export default function Main() {
 
 
     function handleNameChange(e: any){
-        e.preventDefault();
         setName(e.target.value);
+        console.log(name)
     }
     function handleContentChange(e: any){
-        e.preventDefault();
         setContent(e.target.value);
     }
 
@@ -125,6 +125,7 @@ export default function Main() {
         addComment({name: name, content: content, cat: random, counter: commentCount+1})
         setName('');
         setContent('');
+        alert('added successfully')
     }
 
     function handleCatClick(e: any){
@@ -178,12 +179,12 @@ export default function Main() {
 
         setCurrentTime(correctHour + ":" + correctMinutes + ":" + correctSeconds + " " + whichHalf)
     }
-    if (typeof window !== "undefined") {
+    /*if (typeof window !== "undefined") {
 
     window.onbeforeunload = function () {
         window.scrollTo(0, 0);
     }
-    }
+    }*/
 
 
     function Cat(number: any) {
@@ -481,7 +482,7 @@ export default function Main() {
 
                             </div>
                         </div>
-                        <a href='/' className="w-auto h-auto">
+                        <a className="w-auto h-auto">
                             <button  onClick={handleButtonClick} className="hover:outline hover:outline-3 hover:outline-[#BABABA] hover:bg-[#DFE6F0] text-xl w-full mt-4 h-[62px] min-h-[62px] bg-[#E9E9E9] rounded-xl flex flex-col justify-center items-center">
                                 Send
                             </button>
