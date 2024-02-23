@@ -178,12 +178,12 @@ export default function Main() {
 
         setCurrentTime(correctHour + ":" + correctMinutes + ":" + correctSeconds + " " + whichHalf)
     }
-    /*if (typeof window !== "undefined") {
+    if (typeof window !== "undefined") {
 
     window.onbeforeunload = function () {
         window.scrollTo(0, 0);
     }
-    }*/
+    }
 
 
     function Cat(number: any) {
