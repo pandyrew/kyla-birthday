@@ -1,16 +1,22 @@
-import { addDoc, collection, getFirestore } from "firebase/firestore";
-import { app } from "./firebase";
-import { NewCommentType, AddCommentType } from "../types/comment";
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from './firebase';
 
-export const firestore = getFirestore(app);
+export const commentsCollection = collection(db, 'comments');
 
-// comments collection
-
-export const commentsCollection = collection(firestore, "comments1");
-
-//add a new comment document
-export const addComment = async (commentData: AddCommentType) => {
-    const newComment = await addDoc(commentsCollection, {...commentData});
-    console.log('new comment was created at ${newComment.path}')
-
-}
+export const addComment = async (commentData: {
+  name: string;
+  content: string;
+  cat: number;
+  counter: number;
+}) => {
+  try {
+    const docRef = await addDoc(commentsCollection, {
+      ...commentData,
+      timestamp: serverTimestamp(),
+    });
+    return docRef;
+  } catch (error) {
+    console.error("Error adding comment: ", error);
+    throw error;
+  }
+};
