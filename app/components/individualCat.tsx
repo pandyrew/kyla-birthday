@@ -169,6 +169,12 @@ function Cat(number: any, counter: any) {
         else if (count === 30) {
         const valueOfTop = '76%'
         return valueOfTop;}
+        else if (count === 31) {
+        const valueOfTop = '85%'
+        return valueOfTop;}
+        else if (count === 32) {
+        const valueOfTop = '85%'
+        return valueOfTop;}
         return '10%'
     }
     function setLeftValue(count?: number) {
@@ -260,7 +266,13 @@ function Cat(number: any, counter: any) {
         const valueOfTop = '15%'
         return valueOfTop;}
         else if (count === 30) {
-        const valueOfTop = '85%'
+        const valueOfTop = '15%'
+        return valueOfTop;}
+        else if (count === 31) {
+        const valueOfTop = '19%'
+        return valueOfTop;}
+        else if (count === 32) {
+        const valueOfTop = '69%'
         return valueOfTop;}
         
         return '10%'

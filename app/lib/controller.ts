@@ -6,7 +6,7 @@ export const firestore = getFirestore(app);
 
 // comments collection
 
-export const commentsCollection = collection(firestore, "comments");
+export const commentsCollection = collection(firestore, "comments1");
 
 //add a new comment document
 export const addComment = async (commentData: AddCommentType) => {
