@@ -35,10 +35,10 @@ export default function Page() {
                     </div>
                     <div className="text-[#767F74] w-full h-[10%] flex justify-center items-center flex-col font-arial">
                         <div>
-                            Didn't think just plain text would be enough.
+                            Didn&apos;t think just plain text would be enough.
                         </div>
                         <div>
-                            So here's a <span className="font-bold">sonnet</span> about the time we first met and a <span className="font-bold">haiku</span> about how she thinks she's a <span className="text-[#DD9E9E]">cat</span>-<span className="text-[#93BDDB]">mermaid</span>-<span className="text-[#9AAE9B]">bunny</span> hybrid.
+                            So here&apos;s a <span className="font-bold">sonnet</span> about the time we first met and a <span className="font-bold">haiku</span> about how she thinks she&apos;s a <span className="text-[#DD9E9E]">cat</span>-<span className="text-[#93BDDB]">mermaid</span>-<span className="text-[#9AAE9B]">bunny</span> hybrid.
                         </div>
                     </div>
                     
